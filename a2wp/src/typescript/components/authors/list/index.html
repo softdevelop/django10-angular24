@@ -1,0 +1,46 @@
+<div class="list">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="text-center text-muted">List of people</h5>
+            <hr>
+            <div class="pull-right" style="margin-bottom: 10px;">
+                <button class="btn btn-md btn-success" routerLink="/author/create">
+                    Add new person
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" *ngIf="authors">
+            <div class="list-group" *ngFor="let author of authors" id="item-{{ author.id }}">
+                <div class="list-group-item clearfix text-muted text-left">
+                    <span class="glyphicon glyphicon-file"></span>
+                    Name: {{ author.name }}
+                    <span class="pull-right">
+                        <button class="btn btn-md btn-info" (click)="onView(author)">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+
+                        <button class="btn btn-md btn-success" routerLink="/author/{{author.id}}">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+
+                        <button class="btn btn-md btn-info" routerLink="/author/edit/{{author.id}}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+
+                        <button href="#remove-author" data-toggle="modal" class="btn btn-md btn-danger" (click)="selectedAuthor = author">
+                        <!--button href="#remove-author" data-toggle="modal" class="btn btn-md btn-danger" (click)="onSelect(author)"-->
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                  </span>
+                </div>
+            </div>
+            <author-remove [author]="selectedAuthor"></author-remove>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="!authors">
+        <p>Empty list</p>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+<div *ngIf="author" >
+	<h5 class="text-center text-muted">Author {{ author.name }}</h5>
+	<hr>
+	<p> ID: {{ author.id }} </p>
+	<p> Name: {{ author.name }} </p>
+	<p> Created date: {{ author.created }} </p>
+	<p> Updated date: {{ author.updated }} </p>
+	<hr>
+    <span class="pull-right">
+        <button class="btn btn-md btn-info" (click)="onList()">
+            <span class="glyphicon glyphicon-list"></span> List authors
+        </button>
+        <button class="btn btn-md btn-success" routerLink="/authors">
+            Back to list authors
+        </button>
+  	</span>
+</div>

@@ -1,0 +1,13 @@
+{% if authors %}
+    <ul>
+       {% for author in authors %}
+       <li>
+             <a href="/author/{{author.id}}/">
+                {{author.name}} 
+             </a>
+       <li>
+       {% endfor %}
+    </ul>
+{% else %}
+   <p>No Authors are available.</p>
+{% endif %}
